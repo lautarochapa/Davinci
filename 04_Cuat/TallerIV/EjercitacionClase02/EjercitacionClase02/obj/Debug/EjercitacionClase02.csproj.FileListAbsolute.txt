@@ -1,0 +1,7 @@
+C:\Users\Alumno\Desktop\Davinci\04_Cuat\TallerIV\EjercitacionClase02\EjercitacionClase02\obj\Debug\EjercitacionClase02.csprojResolveAssemblyReference.cache
+C:\Users\Alumno\Desktop\Davinci\04_Cuat\TallerIV\EjercitacionClase02\EjercitacionClase02\obj\Debug\EjercitacionClase02.csproj.CoreCompileInputs.cache
+C:\Users\Alumno\Desktop\Davinci\04_Cuat\TallerIV\EjercitacionClase02\EjercitacionClase02\bin\Debug\EjercitacionClase02.exe.config
+C:\Users\Alumno\Desktop\Davinci\04_Cuat\TallerIV\EjercitacionClase02\EjercitacionClase02\bin\Debug\EjercitacionClase02.exe
+C:\Users\Alumno\Desktop\Davinci\04_Cuat\TallerIV\EjercitacionClase02\EjercitacionClase02\bin\Debug\EjercitacionClase02.pdb
+C:\Users\Alumno\Desktop\Davinci\04_Cuat\TallerIV\EjercitacionClase02\EjercitacionClase02\obj\Debug\EjercitacionClase02.exe
+C:\Users\Alumno\Desktop\Davinci\04_Cuat\TallerIV\EjercitacionClase02\EjercitacionClase02\obj\Debug\EjercitacionClase02.pdb
