@@ -10,126 +10,146 @@ namespace EjercitacionClase02
     {
         static void Main(string[] args)
         {
+            mostarLanding();
 
-            int CantidadOperaciones = 0;
-            var OperacionOriginal = "";
+            int OperacionesEjecutadas = 0;
+            var expresionOriginal = "";
+            int respuesta = 0;
 
-
-            while (OperacionOriginal != "exit")
+            while (expresionOriginal != "exit")
             {
-                if(CantidadOperaciones == 0)
+                //si aun no se ejecuto ninguna operacion, se pide ingresar una operacion (para la primera ejecucion)
+                if(OperacionesEjecutadas == 0)
                 {
-                    Console.WriteLine("Por favor ingrese la operacion que desea realizar: ");
-                    OperacionOriginal = Console.ReadLine();
-                    OperacionOriginal = "0+" + OperacionOriginal;
+                    pedirOperacion(); 
                 }
 
-
-
+                //se asigna la cantidad de operaciones que tiene la expresion
+                int cantidadOperaciones = ContarOperaciones(expresionOriginal);
+                //se crea un array con la misma cantidad de operaciones
                 string[] operaciones;
-                string[] operadores;
-                int cantidadOperaciones = ContarOperaciones(OperacionOriginal);
-                ;
-
-
-
-
-
                 operaciones = new string[cantidadOperaciones];
-                operadores = new string[cantidadOperaciones + 1];
-                cantidadOperaciones = -1;
+                //se crea un array de valores con la cantidad de operaciones +1
+                string[] valores;
+                valores = new string[cantidadOperaciones + 1];
+                int operacionesAsignadas = 0;
 
-
-                foreach (char caracter in OperacionOriginal)
+                foreach (char caracter in expresionOriginal)
                 {
-
-                    int operacionesAsignadas = -2;
                     if ((caracter == '/') || (caracter == '*') || (caracter == '-') || (caracter == '+'))
-                        cantidadOperaciones++;
+                        operacionesAsignadas++;
                     switch (caracter)
                     {
                         case '/':
-                            operaciones[cantidadOperaciones] = "/";
-                            operacionesAsignadas++;
+                            operaciones[operacionesAsignadas-1] = "/";
                             break;
                         case '*':
-                            operaciones[cantidadOperaciones] = "*";
-                            operacionesAsignadas++;
+                            operaciones[operacionesAsignadas-1] = "*";
                             break;
                         case '+':
-                            operaciones[cantidadOperaciones] = "+";
-                            operacionesAsignadas++;
+                            operaciones[operacionesAsignadas-1] = "+";
                             break;
                         case '-':
-                            operaciones[cantidadOperaciones] = "-";
-                            operacionesAsignadas++;
+                            operaciones[operacionesAsignadas-1] = "-";
                             break;
                         default:
                             if (caracter != ' ')
                             {
-                                if (operacionesAsignadas < cantidadOperaciones)
-                                {
-                                    operadores[cantidadOperaciones + 1] += caracter;
-                                }
+                                
+                                    if (caracter == 'r' || caracter == 'R')
+                                    {
+                                        valores[operacionesAsignadas] += respuesta;
+                                    }
+                                    else
+                                    {
+                                        valores[operacionesAsignadas] += caracter;
+                                    }
                             }
 
                             break;
                     }
 
-
                 }
 
-                int respuesta = 0;
-
+                //se resetea el valor de la respuesta y se recorre el array de operaciones
+                respuesta = 0;
                 for (int i = 0; i < operaciones.Length; i++)
                 {
 
-                    switch (operaciones[i])
-                    {
-                        case "/":
-                            respuesta = respuesta / int.Parse(operadores[i + 1]);
-                            break;
-                        case "*":
-                            respuesta = respuesta * int.Parse(operadores[i + 1]);
-                            break;
-                        case "+":
-                            respuesta = respuesta + int.Parse(operadores[i + 1]);
-                            break;
-                        case "-":
-                            respuesta = respuesta - int.Parse(operadores[i + 1]);
-                            break;
-
-                    }
-
+                    string operacion = operaciones[i];
+                    int valor2 = int.Parse(valores[i + 1]);
+                    //se ejecuta cada operacion con el valor inicial de "respuesta" y de "valor2" asginando el resultado nuevamente en respuesta
+                    respuesta = ejecutarOperacion(respuesta, valor2, operacion);
 
                 }
 
 
-
                 Console.WriteLine(respuesta);
-
-
-
-
-
-
-                Console.WriteLine("Por favor ingrese la operacion que desea realizar: ");
-                OperacionOriginal = Console.ReadLine();
-                OperacionOriginal = "0+" + OperacionOriginal;
-                CantidadOperaciones++;
+                pedirOperacion();
+                OperacionesEjecutadas++;
             }
 
+
+
+
+
+            //funciones:
 
             int ContarOperaciones(String op)
             {
                 int cantOperaciones = 0;
+                //se recorre la expresion
                 foreach (char caracter in op)
                 {
+                    //por cada caracter igual a {'/','*','-','+'} se suma una operacion en el contador
                     if ((caracter == '/') || (caracter == '*') || (caracter == '-') || (caracter == '+'))
                         cantOperaciones++;
                 }
+                //devuelve la cantidad total de operaciones
                 return cantOperaciones;
             }
+
+
+            int ejecutarOperacion(int resp, int valor2, string operacion)
+            {
+                switch (operacion)
+                {
+                    case "/":
+                        resp = resp / valor2;
+                        break;
+                    case "*":
+                        resp = resp * valor2;
+                        break;
+                    case "+":
+                        resp = resp + valor2;
+                        break;
+                    case "-":
+                        resp = resp - valor2;
+                        break;
+                }
+                return resp;
+            }
+
+
+            void pedirOperacion()
+            {
+                Console.WriteLine("Por favor ingrese la operacion que desea realizar: ");
+                expresionOriginal = Console.ReadLine();
+                expresionOriginal = "0+" + expresionOriginal;
+            }
+
+
+            void mostarLanding()
+            {
+                Console.WriteLine("La calculadora se dispone a realizar: ");
+                Console.WriteLine("Suma: +");
+                Console.WriteLine("Resta: - ");
+                Console.WriteLine("Multiplicacion: *");
+                Console.WriteLine("Division: /");
+                Console.WriteLine("Para realizar una operacion con el resultado de la operacion anterior utilice: 'R' ");
+            }
+
+
 
 
         }
