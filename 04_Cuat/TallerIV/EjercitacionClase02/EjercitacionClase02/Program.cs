@@ -15,13 +15,15 @@ namespace EjercitacionClase02
             int OperacionesEjecutadas = 0;
             var expresionOriginal = "";
             int respuesta = 0;
+            string expresionBackup = "";
 
             while (expresionOriginal != "exit")
             {
+                bool expresionConError = false;
                 //si aun no se ejecuto ninguna operacion, se pide ingresar una operacion (para la primera ejecucion)
-                if(OperacionesEjecutadas == 0)
+                if (OperacionesEjecutadas == 0)
                 {
-                    pedirOperacion(); 
+                    pedirOperacion(expresionConError); 
                 }
 
                 //se asigna la cantidad de operaciones que tiene la expresion
@@ -34,28 +36,46 @@ namespace EjercitacionClase02
                 valores = new string[cantidadOperaciones + 1];
                 int operacionesAsignadas = 0;
 
+
                 foreach (char caracter in expresionOriginal)
                 {
-                    if ((caracter == '/') || (caracter == '*') || (caracter == '-') || (caracter == '+'))
-                        operacionesAsignadas++;
-                    switch (caracter)
+                    int resultado;
+                    bool isNumeric = int.TryParse(caracter.ToString(), out resultado);
+                    if (isNumeric == true || caracter == '+' || caracter == '-' || caracter == '/' || caracter == '*' || caracter == 'r' || caracter == 'R')
                     {
-                        case '/':
-                            operaciones[operacionesAsignadas-1] = "/";
-                            break;
-                        case '*':
-                            operaciones[operacionesAsignadas-1] = "*";
-                            break;
-                        case '+':
-                            operaciones[operacionesAsignadas-1] = "+";
-                            break;
-                        case '-':
-                            operaciones[operacionesAsignadas-1] = "-";
-                            break;
-                        default:
-                            if (caracter != ' ')
-                            {
-                                
+                        expresionBackup += caracter;
+                    }
+                    else {
+                        expresionConError = true;
+                    }
+
+                }
+                
+                if (expresionConError == false)
+                {
+                    foreach (char caracter in expresionOriginal)
+                    {
+
+                        if ((caracter == '/') || (caracter == '*') || (caracter == '-') || (caracter == '+'))
+                            operacionesAsignadas++;
+                        switch (caracter)
+                        {
+                            case '/':
+                                operaciones[operacionesAsignadas - 1] = "/";
+                                break;
+                            case '*':
+                                operaciones[operacionesAsignadas - 1] = "*";
+                                break;
+                            case '+':
+                                operaciones[operacionesAsignadas - 1] = "+";
+                                break;
+                            case '-':
+                                operaciones[operacionesAsignadas - 1] = "-";
+                                break;
+                            default:
+                                if (caracter != ' ')
+                                {
+
                                     if (caracter == 'r' || caracter == 'R')
                                     {
                                         valores[operacionesAsignadas] += respuesta;
@@ -64,29 +84,32 @@ namespace EjercitacionClase02
                                     {
                                         valores[operacionesAsignadas] += caracter;
                                     }
-                            }
+                                }
 
-                            break;
+                                break;
+                        }
+
                     }
 
+                    //se resetea el valor de la respuesta y se recorre el array de operaciones
+                    respuesta = 0;
+                    for (int i = 0; i < operaciones.Length; i++)
+                    {
+
+                        string operacion = operaciones[i];
+                        int valor2 = int.Parse(valores[i + 1]);
+                        //se ejecuta cada operacion con el valor inicial de "respuesta" y de "valor2" asginando el resultado nuevamente en respuesta
+                        respuesta = ejecutarOperacion(respuesta, valor2, operacion);
+
+                    }
+                    Console.WriteLine(respuesta);
+
                 }
 
-                //se resetea el valor de la respuesta y se recorre el array de operaciones
-                respuesta = 0;
-                for (int i = 0; i < operaciones.Length; i++)
-                {
-
-                    string operacion = operaciones[i];
-                    int valor2 = int.Parse(valores[i + 1]);
-                    //se ejecuta cada operacion con el valor inicial de "respuesta" y de "valor2" asginando el resultado nuevamente en respuesta
-                    respuesta = ejecutarOperacion(respuesta, valor2, operacion);
-
-                }
-
-
-                Console.WriteLine(respuesta);
-                pedirOperacion();
+                pedirOperacion(expresionConError);
                 OperacionesEjecutadas++;
+                expresionConError = false;
+                expresionBackup = "";
             }
 
 
@@ -107,6 +130,7 @@ namespace EjercitacionClase02
                 }
                 //devuelve la cantidad total de operaciones
                 return cantOperaciones;
+               
             }
 
 
@@ -131,22 +155,46 @@ namespace EjercitacionClase02
             }
 
 
-            void pedirOperacion()
+            void pedirOperacion(bool iferror)
             {
-                Console.WriteLine("Por favor ingrese la operacion que desea realizar: ");
-                expresionOriginal = Console.ReadLine();
-                expresionOriginal = "0+" + expresionOriginal;
+                
+                if (iferror == true)
+                {
+                    Console.WriteLine("Usted intento decir: '" + expresionBackup + "'? Y/N");
+                    expresionOriginal = Console.ReadLine();
+                    if (expresionOriginal == "y" || expresionOriginal == "Y")
+                    {
+                        expresionOriginal = expresionBackup;
+                        expresionOriginal = "0+" + expresionOriginal;
+                    }
+                    else
+                    if (expresionOriginal == "n" || expresionOriginal == "N")
+                    {
+                        Console.WriteLine("Por favor repita la operacion que desea realizar: ");
+                        expresionOriginal = Console.ReadLine();
+                        expresionOriginal = "0+" + expresionOriginal;
+                    }
+                }   
+                else
+                {
+                    Console.WriteLine("Por favor ingrese la operacion que desea realizar: ");
+                    expresionOriginal = Console.ReadLine();
+                    expresionOriginal = "0+" + expresionOriginal;
+                }
             }
 
 
             void mostarLanding()
             {
+                Console.WriteLine("Bienvenido");
+                /*
                 Console.WriteLine("La calculadora se dispone a realizar: ");
                 Console.WriteLine("Suma: +");
                 Console.WriteLine("Resta: - ");
                 Console.WriteLine("Multiplicacion: *");
                 Console.WriteLine("Division: /");
                 Console.WriteLine("Para realizar una operacion con el resultado de la operacion anterior utilice: 'R' ");
+                */
             }
 
 
