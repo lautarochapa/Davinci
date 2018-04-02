@@ -10,6 +10,7 @@ namespace TrabajoPractico1
     {
         static void Main(string[] args)
         {
+            //Ejercicio 1:
 
             Console.WriteLine("Por favor ingrese su nombre");
             var Nombre = Console.ReadLine();
@@ -20,7 +21,7 @@ namespace TrabajoPractico1
             Console.WriteLine("Su nombre es: " + Apellido + ", " + Nombre);
             Console.WriteLine("");
 
-            //Ej 2
+            //Ejercicio 2
 
             Console.WriteLine("Por favor ingrese su nombre");
             Nombre = Console.ReadLine();
@@ -29,7 +30,7 @@ namespace TrabajoPractico1
             int Edad;
             bool LoHizo = int.TryParse(Console.ReadLine(), out Edad);
 
-            if (Edad > 18)
+            if (Edad >= 18)
             {
                 Console.WriteLine("Su nombre es: " + Nombre + " y usted es mayor de edad");
                 Console.WriteLine("");
@@ -41,16 +42,21 @@ namespace TrabajoPractico1
             }
 
 
-            //Ej 3:
-
+            //Ejercicio 3:
 
             Console.WriteLine("Por favor ingrese un valor");
-            int Numero1;
-            int.TryParse(Console.ReadLine(), out Numero1);
+            int numero1;
+            int.TryParse(Console.ReadLine(), out numero1);
+            int salida = numero1;
+            for (int i = 0; i < numero1; i++)
+            {
+                salida += i;
+            }
+            Console.WriteLine("la suma es: " + salida);
 
 
 
-            //Ej 4:
+            //Ejercicio 4:
 
             Console.WriteLine("Por favor ingrese un valor");
             int Valor1;
@@ -68,9 +74,17 @@ namespace TrabajoPractico1
 
 
 
+            //Ejercicio 5:
 
+            int entrada = Console.Read();
+            int Output = 0;
+            while(entrada != 0)
+            {
+                Output += entrada;
+                entrada = Console.Read();
+            }
 
-
+            Console.WriteLine("la suma de todos los numeros ingresados es: " + Output);
             Console.Read();
 
 

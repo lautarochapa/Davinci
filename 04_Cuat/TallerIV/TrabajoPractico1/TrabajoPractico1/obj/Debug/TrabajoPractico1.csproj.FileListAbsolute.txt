@@ -1,0 +1,7 @@
+C:\Users\usuario\Desktop\Escuela Davinci\04_Cuat\Davinci\04_Cuat\TallerIV\TrabajoPractico1\TrabajoPractico1\bin\Debug\TrabajoPractico1.exe.config
+C:\Users\usuario\Desktop\Escuela Davinci\04_Cuat\Davinci\04_Cuat\TallerIV\TrabajoPractico1\TrabajoPractico1\bin\Debug\TrabajoPractico1.exe
+C:\Users\usuario\Desktop\Escuela Davinci\04_Cuat\Davinci\04_Cuat\TallerIV\TrabajoPractico1\TrabajoPractico1\bin\Debug\TrabajoPractico1.pdb
+C:\Users\usuario\Desktop\Escuela Davinci\04_Cuat\Davinci\04_Cuat\TallerIV\TrabajoPractico1\TrabajoPractico1\obj\Debug\TrabajoPractico1.csprojResolveAssemblyReference.cache
+C:\Users\usuario\Desktop\Escuela Davinci\04_Cuat\Davinci\04_Cuat\TallerIV\TrabajoPractico1\TrabajoPractico1\obj\Debug\TrabajoPractico1.csproj.CoreCompileInputs.cache
+C:\Users\usuario\Desktop\Escuela Davinci\04_Cuat\Davinci\04_Cuat\TallerIV\TrabajoPractico1\TrabajoPractico1\obj\Debug\TrabajoPractico1.exe
+C:\Users\usuario\Desktop\Escuela Davinci\04_Cuat\Davinci\04_Cuat\TallerIV\TrabajoPractico1\TrabajoPractico1\obj\Debug\TrabajoPractico1.pdb

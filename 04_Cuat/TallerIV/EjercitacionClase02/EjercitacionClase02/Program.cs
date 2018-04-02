@@ -17,7 +17,7 @@ namespace EjercitacionClase02
             int respuesta = 0;
             string expresionBackup = "";
 
-            while (expresionOriginal != "exit")
+            while (expresionOriginal != "0+exit")
             {
                 bool expresionConError = false;
                 //si aun no se ejecuto ninguna operacion, se pide ingresar una operacion (para la primera ejecucion)
@@ -37,19 +37,8 @@ namespace EjercitacionClase02
                 int operacionesAsignadas = 0;
 
 
-                foreach (char caracter in expresionOriginal)
-                {
-                    int resultado;
-                    bool isNumeric = int.TryParse(caracter.ToString(), out resultado);
-                    if (isNumeric == true || caracter == '+' || caracter == '-' || caracter == '/' || caracter == '*' || caracter == 'r' || caracter == 'R')
-                    {
-                        expresionBackup += caracter;
-                    }
-                    else {
-                        expresionConError = true;
-                    }
+                expresionConError = detectarErrores(expresionOriginal, expresionConError);
 
-                }
                 
                 if (expresionConError == false)
                 {
@@ -92,6 +81,8 @@ namespace EjercitacionClase02
                     }
 
                     //se resetea el valor de la respuesta y se recorre el array de operaciones
+
+                    bool divisionXcero = false;
                     respuesta = 0;
                     for (int i = 0; i < operaciones.Length; i++)
                     {
@@ -99,10 +90,27 @@ namespace EjercitacionClase02
                         string operacion = operaciones[i];
                         int valor2 = int.Parse(valores[i + 1]);
                         //se ejecuta cada operacion con el valor inicial de "respuesta" y de "valor2" asginando el resultado nuevamente en respuesta
-                        respuesta = ejecutarOperacion(respuesta, valor2, operacion);
+                        if(valor2 == 0 && operacion == "/")
+                        {
+                            divisionXcero = true;
+                        }
+                        else
+                        {
+
+                            respuesta = ejecutarOperacion(respuesta, valor2, operacion);
+                        }
 
                     }
-                    Console.WriteLine(respuesta);
+                    if(divisionXcero == false)
+                    {
+
+                        Console.WriteLine("Resultado: " + respuesta);
+                    }
+                    else
+                    {
+
+                        Console.WriteLine("No se puede dividir por cero");
+                    }
 
                 }
 
@@ -160,24 +168,34 @@ namespace EjercitacionClase02
                 
                 if (iferror == true)
                 {
-                    Console.WriteLine("Usted intento decir: '" + expresionBackup + "'? Y/N");
-                    expresionOriginal = Console.ReadLine();
-                    if (expresionOriginal == "y" || expresionOriginal == "Y")
+                    if(expresionBackup == "")
                     {
-                        expresionOriginal = expresionBackup;
+                        Console.WriteLine("Repita la operacion: ");
+                        expresionOriginal = Console.ReadLine();
                         expresionOriginal = "0+" + expresionOriginal;
                     }
                     else
-                    if (expresionOriginal == "n" || expresionOriginal == "N")
                     {
-                        Console.WriteLine("Por favor repita la operacion que desea realizar: ");
+                        Console.WriteLine("Usted intento decir: '" + expresionBackup + "'? Y/N");
                         expresionOriginal = Console.ReadLine();
-                        expresionOriginal = "0+" + expresionOriginal;
+                        if (expresionOriginal == "y" || expresionOriginal == "Y")
+                        {
+                            expresionOriginal = expresionBackup;
+                            expresionOriginal = "0+" + expresionOriginal;
+                        }
+                        else
+                        if (expresionOriginal == "n" || expresionOriginal == "N")
+                        {
+                            Console.WriteLine("Repita la operacion: ");
+                            expresionOriginal = Console.ReadLine();
+                            expresionOriginal = "0+" + expresionOriginal;
+                        }
+                    
                     }
                 }   
                 else
                 {
-                    Console.WriteLine("Por favor ingrese la operacion que desea realizar: ");
+                    Console.WriteLine("Ingrese la operacion: ");
                     expresionOriginal = Console.ReadLine();
                     expresionOriginal = "0+" + expresionOriginal;
                 }
@@ -195,6 +213,30 @@ namespace EjercitacionClase02
                 Console.WriteLine("Division: /");
                 Console.WriteLine("Para realizar una operacion con el resultado de la operacion anterior utilice: 'R' ");
                 */
+            }
+
+
+            bool detectarErrores(string exp, bool ifError)
+            {
+                if(exp != "0+exit")
+                {
+                    foreach (char caracter in exp)
+                    {
+                        int resultado;
+                        bool isNumeric = int.TryParse(caracter.ToString(), out resultado);
+                        if (isNumeric == true || caracter == '+' || caracter == '-' || caracter == '/' || caracter == '*' || caracter == 'r' || caracter == 'R')
+                        {
+                            expresionBackup += caracter;
+                        }
+                        else
+                        {
+                            ifError = true;
+                        }
+                    }
+                    expresionBackup = expresionBackup.Substring(2);
+                }
+                
+                return ifError;
             }
 
 
