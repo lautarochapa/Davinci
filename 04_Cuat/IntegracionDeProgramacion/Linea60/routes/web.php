@@ -18,13 +18,16 @@ Route::get('/', function () {
 Route::get('/stops','StopController@getAll');
 Route::get('/branches','BranchController@getAll');
 
+Route::delete('/branches/{id}', 'BranchController@delete');
 
+
+Route::post('/branches','BranchController@add');
+
+//aun no implementado
 Route::get('/branches/{id}','BranchController@getOne');
 
 Route::get('/stops/branchName/{id}','StopController@getBranchName');
 
 
 
-Route::post('/branches','BranchController@add');
 Route::put('/branches/{id}', 'BranchController@update');
-Route::delete('/branches/{id}', 'BranchController@delete');

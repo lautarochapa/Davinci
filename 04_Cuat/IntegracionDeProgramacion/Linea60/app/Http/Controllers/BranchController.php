@@ -23,6 +23,7 @@ class BranchController extends Controller
          $branch->save();
          return "Ok";
      }
+     
      function update($id,Request $req){
          $branch = Branch::findOrFail($id);
          $branch->name = $req->name;
