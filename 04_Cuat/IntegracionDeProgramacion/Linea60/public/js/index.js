@@ -1,4 +1,4 @@
-const data = {branches: [], stops:[]}
+const data = {branches: [], stops:[], nuevoRamal : ""}
 
 window.addEventListener("load",()=> {
     crearNav()
@@ -7,7 +7,10 @@ window.addEventListener("load",()=> {
    
     var branches = new Vue({
         el: '#branches',
-        data: data,            
+        data: data,
+        methods:{
+            agregarRamal : agregarRamal
+        }
     })
 
     var stops = new Vue({
@@ -52,7 +55,18 @@ function CrearBoton(texto, target, funcion, objeto){
     return boton
 }
 
-function CrearT(texto, boton, thtd, funcion, objeto){
+
+
+/*
+    <a v-on:click="deleteRamal(branch)">
+        <button type="button" class="btn btn-danger">Borrar</button>
+    </a>
+
+    
+    tr.appendChild(CrearT(td4, "1", "td", "ModalEliminar"))
+*/
+
+function CrearT(texto, boton, thtd, funcion, objeto, eliminar){
     let t 
     if(thtd == "th"){
         t = document.createElement("th")
@@ -60,7 +74,15 @@ function CrearT(texto, boton, thtd, funcion, objeto){
         t = document.createElement("td")
     }
     if(boton == "1"){
-        t.appendChild(CrearBoton(texto, "Modal" + funcion + objeto , funcion, objeto))
+
+        if(eliminar == "1"){
+            const a = document.createElement("a")
+            a.setAttribute("v-on:click", "deleteRamal(branch)")
+            a.appendChild(CrearBoton(texto, "Modal" + funcion + objeto , funcion, objeto))
+            t.appendChild(a)
+        }else{
+            t.appendChild(CrearBoton(texto, "Modal" + funcion + objeto , funcion, objeto))
+        }
     }else{
         t.innerText = texto
     }
@@ -76,7 +98,7 @@ function CrearThead(th1, th2, th3, th4, objeto){
     tr.appendChild(CrearT(th3, "0", "th"))
     tr.appendChild(CrearT(th4, "1", "th", "Crear", objeto))
     
-    crearModalNuevo("ModalCrear" + objeto)
+    //crearModalNuevo("ModalCrear" + objeto)
     thead.appendChild(tr)
 
     return thead
@@ -84,17 +106,44 @@ function CrearThead(th1, th2, th3, th4, objeto){
 }
 
 
+function crearInput(texto){
+    const div = document.createElement("div")
+    const label = document.createElement("label")
+    label.innerText = texto + ":"
+    const input = document.createElement("input")
+    input.setAttribute("type", "text")
+    input.setAttribute("class", "form-control")
+    input.setAttribute("id", texto)
+    input.setAttribute("placeholder", "por favor ingrese el " + texto)
+    input.setAttribute("v-model", "nuevoRamal")
+    const boton = document.createElement("button")
+    boton.setAttribute("type", "button")
+    boton.setAttribute("class", "btn btn-success")
+    boton.setAttribute("v-on:click", "agregarRamal(nuevoRamal)")
+    boton.innerText = "Guardar"
+
+
+    div.appendChild(label)
+    div.appendChild(input)
+    div.appendChild(boton)
+    return div
+}
+
 function CrearTBody(td1, td2, td3, td4, id, loop){
     const tbody = document.createElement("tbody")
     tbody.setAttribute("id", id)
+    tbody.appendChild(  crearInput("nombre") )
     const tr = document.createElement("tr")
     tr.setAttribute("v-for",loop)
     tr.appendChild(CrearT(td1, "0", "td"))
     tr.appendChild(CrearT(td2, "0", "td"))
     tr.appendChild(CrearT(td3, "1", "td", "ModalEditar"))
-    tr.appendChild(CrearT(td4, "1", "td", "ModalEliminar"))
+    tr.appendChild(CrearT(td4, "1", "td", "ModalEliminar", "1","1"))
     //crearModalEliminar("ModalEliminar")
     tbody.appendChild(tr)
+
+
+
 
     return tbody
 
@@ -119,3 +168,15 @@ function CrearTable(nombre, th1, th2, th3, th4, td1, td2, td3, td4, id, loop){
 }
 
 
+
+
+function agregarRamal(name){
+    axios.post("/branches/",{name:name})
+        .then((resp)=>{
+           updateBranches();
+            data.nuevoRamal = "";   
+        })
+        .catch((err)=>
+            console.error(err.response.data)
+        )
+}

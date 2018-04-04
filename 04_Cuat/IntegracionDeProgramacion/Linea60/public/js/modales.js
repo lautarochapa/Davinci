@@ -2,7 +2,7 @@
 var token = document.head.querySelector('meta[name="csrf-token"]');
 window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 
-
+/*
 function crearModal(id){
     const body = document.getElementById("body")
     const div1 = document.createElement("div")
@@ -54,7 +54,7 @@ function crearModal(id){
 
 }
 
-
+*/
 
 function crearModalNuevo(id){
     const body = document.getElementById("body")
@@ -87,13 +87,12 @@ function crearModalNuevo(id){
 
     const boton3 = document.createElement("button")
     boton3.setAttribute("type", "button")
-    boton3.setAttribute("class", "btn btn-default")
+    boton3.setAttribute("class", "btn btn-success")
     boton3.setAttribute("id", "save"+ id.substring(10))
+    boton3.setAttribute("v-on:click", "agregarRamal(nuevoRamal)")
     boton3.innerText = "Guardar"
 
     boton3.addEventListener("click", showMessage)
-
-
 
 
 
@@ -118,8 +117,6 @@ function showMessage(){
     div4.appendChild(boton1)
     div4.appendChild(h4)
     div5.appendChild(crearInput("nombre"))
-    div5.appendChild(crearInput("cantidadDeCoches"))
-    div5.appendChild(crearInput("fgh"))
     div6.appendChild(boton2)
     div6.appendChild(boton3)
 
@@ -128,31 +125,13 @@ function showMessage(){
 }
 
 
-
-
 function crearRamal(){
-
-      
-    axios.post("/branches", branch)
-        .then((resp)=> console.log( resp.data))
-        .catch((err)=>
-            console.error(err.response.data)
-        )
-    
-
     console.log("nuevo ramal creado con exito")
 }
 
 function crearParada(){
     console.log("nueva parada creada con exito")
 }
-
-
-
-
-
-
-
 
     function crearInput(texto){
         const div = document.createElement("div")
@@ -162,6 +141,8 @@ function crearParada(){
         input.setAttribute("type", "text")
         input.setAttribute("class", "form-control")
         input.setAttribute("id", texto)
+        input.setAttribute("placeholder", "por favor ingrese el " + texto)
+        input.setAttribute("v-model", "nuevo" + texto)
         div.appendChild(label)
         div.appendChild(input)
         return div

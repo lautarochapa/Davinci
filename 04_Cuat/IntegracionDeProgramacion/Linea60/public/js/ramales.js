@@ -9,6 +9,14 @@ function updateBranches(){
 
 }
 
+function deleteRamal(branch){
+    axios.delete("/branches/" + branch.id)
+        .then((resp)=>updateBranches())
+        .catch((err)=>
+            console.error(err.response.data)
+        )
+}
+
 function CrearRamales(){
     console.log("Tabla Ramales Creado")
     body = document.getElementById("body")
@@ -21,8 +29,12 @@ function CrearRamales(){
 
     var branches = new Vue({
         el: '#branches',
-        data: data
+        data: data,
+        methods:{
+            agregarRamal : agregarRamal
+        }
     })
 
 }
+
 
