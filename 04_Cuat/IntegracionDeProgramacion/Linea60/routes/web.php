@@ -19,7 +19,7 @@ Route::get('/stops','StopController@getAll');
 Route::get('/branches','BranchController@getAll');
 
 Route::delete('/branches/{id}', 'BranchController@delete');
-
+Route::delete('/stops/{id}','StopController@delete');
 
 Route::post('/branches','BranchController@add');
 

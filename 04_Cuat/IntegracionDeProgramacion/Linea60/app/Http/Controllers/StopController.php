@@ -17,4 +17,7 @@ class StopController extends Controller
 
         return $stop->branch->name;
     }
+    function delete($id){
+        Branch::findOrFail($id)->delete();
+     }
 }
