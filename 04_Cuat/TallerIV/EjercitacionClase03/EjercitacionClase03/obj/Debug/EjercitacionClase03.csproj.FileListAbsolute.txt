@@ -1,0 +1,7 @@
+C:\Davinci\04_Cuat\TallerIV\EjercitacionClase03\EjercitacionClase03\bin\Debug\EjercitacionClase03.exe.config
+C:\Davinci\04_Cuat\TallerIV\EjercitacionClase03\EjercitacionClase03\bin\Debug\EjercitacionClase03.exe
+C:\Davinci\04_Cuat\TallerIV\EjercitacionClase03\EjercitacionClase03\bin\Debug\EjercitacionClase03.pdb
+C:\Davinci\04_Cuat\TallerIV\EjercitacionClase03\EjercitacionClase03\obj\Debug\EjercitacionClase03.csprojResolveAssemblyReference.cache
+C:\Davinci\04_Cuat\TallerIV\EjercitacionClase03\EjercitacionClase03\obj\Debug\EjercitacionClase03.csproj.CoreCompileInputs.cache
+C:\Davinci\04_Cuat\TallerIV\EjercitacionClase03\EjercitacionClase03\obj\Debug\EjercitacionClase03.exe
+C:\Davinci\04_Cuat\TallerIV\EjercitacionClase03\EjercitacionClase03\obj\Debug\EjercitacionClase03.pdb
