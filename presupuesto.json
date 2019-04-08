@@ -1,0 +1,143 @@
+{
+ "name": "2010",
+ "children": [
+      {
+      "name": "Administración Gubernamental",
+      "children": [
+        {
+          "name": "LEGISLATIVA",
+          "value": 890860000
+        },
+        {
+          "name": "JUDICIAL",
+          "value": 2147483647
+        },
+        {
+          "name": "DIRECCION SUPERIOR EJECUTIVA",
+          "value": 1245357674
+        },
+        {
+          "name": "RELACIONES INTERIORES",
+          "value": 2147483647
+        },
+        {
+          "name": "ADMINISTRACION FINANCIERA",
+          "value": 1162338240
+        },
+        {
+          "name": "CONTROL DE LA GESTION PUBLICA",
+          "value": 167943250
+        },
+        {
+          "name": "INFORMACION Y ESTADISTICAS BASICAS",
+          "value": 427591778
+        }
+      ]
+    },
+    {
+      "name": "Servicios de Seguridad y Justicia",
+      "children": [
+        {
+          "name": "SEGURIDAD",
+          "value": 2147483647
+        },
+        {
+          "name": "SISTEMA PENITENCIARIO",
+          "value": 1444603505
+        }
+      ]
+    },
+    {
+      "name": "Servicios Sociales",
+      "children": [
+        {
+          "name": "SALUD",
+          "value": 2147483647
+        },
+        {
+          "name": "PROMOCION Y ASISTENCIA SOCIAL",
+          "value": 2147483647
+        },
+        {
+          "name": "SEGURIDAD SOCIAL",
+          "value": 2147483647
+        },
+        {
+          "name": "EDUCACION Y CULTURA",
+          "value": 2147483647
+        },
+        {
+          "name": "CIENCIA Y TECNICA",
+          "value": 55172800
+        },
+        {
+          "name": "ASUNTOS LABORALES",
+          "value": 274555400
+        },
+        {
+          "name": "VIVIENDA Y URBANISMO",
+          "value": 749941718
+        },
+        {
+          "name": "ECOLOGIA Y SANEAMIENTO AMBIENTAL",
+          "value": 1145089300
+        },
+        {
+          "name": "DEPORTES Y RECREACION",
+          "value": 71090853
+        }
+      ]
+    }, 
+    {
+      "name": "Servicios Económicos",
+      "children": [
+        {
+          "name": "ENERGIA COMBUSTIBLES Y MINERIA",
+          "value": 422117472
+        },
+        {
+          "name": "COMUNICACIONES",
+          "value": 68270418
+        },
+        {
+          "name": "TRANSPORTE",
+          "value": 1576103123
+        },
+        {
+          "name": "SUELO RIEGO DESAGÚES Y DRENAJES",
+          "value": 310980425
+        },
+        {
+          "name": "AGRICULTURA GANADERIA Y RECURSOS NATURALES RENOVABLES",
+          "value": 79856447
+        },
+        {
+          "name": "INDUSTRIA",
+          "value": 497775872
+        },
+        {
+          "name": "COMERCIO FINANZAS SEGUROS Y ALMACENAJE",
+          "value": 23228105
+        },
+        {
+          "name": "COMERCIO ALMACENAJE Y OTROS SERVICIOS",
+          "value": 3789866
+        },
+        {
+          "name": "TURISMO",
+          "value": 24335100
+        }
+      ]
+    },
+    {
+      "name": "Deuda Pública",
+      "children": [
+        {
+          "name": "SERVICIOS DE LA DEUDA PUBLICA",
+          "value": 1231385000
+        }
+      ]
+    }
+  ]
+}
+
