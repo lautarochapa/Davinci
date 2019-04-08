@@ -6,31 +6,31 @@
       "children": [
         {
           "name": "LEGISLATIVA",
-          "size": 890860000
+          "value": 890860000
         },
         {
           "name": "JUDICIAL",
-          "size": 2147483647
+          "value": 2147483647
         },
         {
           "name": "DIRECCION SUPERIOR EJECUTIVA",
-          "size": 1245357674
+          "value": 1245357674
         },
         {
           "name": "RELACIONES INTERIORES",
-          "size": 2147483647
+          "value": 2147483647
         },
         {
           "name": "ADMINISTRACION FINANCIERA",
-          "size": 1162338240
+          "value": 1162338240
         },
         {
           "name": "CONTROL DE LA GESTION PUBLICA",
-          "size": 167943250
+          "value": 167943250
         },
         {
           "name": "INFORMACION Y ESTADISTICAS BASICAS",
-          "size": 427591778
+          "value": 427591778
         }
       ]
     },
@@ -39,11 +39,11 @@
       "children": [
         {
           "name": "SEGURIDAD",
-          "size": 2147483647
+          "value": 2147483647
         },
         {
           "name": "SISTEMA PENITENCIARIO",
-          "size": 1444603505
+          "value": 1444603505
         }
       ]
     },
@@ -52,39 +52,39 @@
       "children": [
         {
           "name": "SALUD",
-          "size": 2147483647
+          "value": 2147483647
         },
         {
           "name": "PROMOCION Y ASISTENCIA SOCIAL",
-          "size": 2147483647
+          "value": 2147483647
         },
         {
           "name": "SEGURIDAD SOCIAL",
-          "size": 2147483647
+          "value": 2147483647
         },
         {
           "name": "EDUCACION Y CULTURA",
-          "size": 2147483647
+          "value": 2147483647
         },
         {
           "name": "CIENCIA Y TECNICA",
-          "size": 55172800
+          "value": 55172800
         },
         {
           "name": "ASUNTOS LABORALES",
-          "size": 274555400
+          "value": 274555400
         },
         {
           "name": "VIVIENDA Y URBANISMO",
-          "size": 749941718
+          "value": 749941718
         },
         {
           "name": "ECOLOGIA Y SANEAMIENTO AMBIENTAL",
-          "size": 1145089300
+          "value": 1145089300
         },
         {
           "name": "DEPORTES Y RECREACION",
-          "size": 71090853
+          "value": 71090853
         }
       ]
     }, 
@@ -93,39 +93,39 @@
       "children": [
         {
           "name": "ENERGIA COMBUSTIBLES Y MINERIA",
-          "size": 422117472
+          "value": 422117472
         },
         {
           "name": "COMUNICACIONES",
-          "size": 68270418
+          "value": 68270418
         },
         {
           "name": "TRANSPORTE",
-          "size": 1576103123
+          "value": 1576103123
         },
         {
           "name": "SUELO RIEGO DESAGÚES Y DRENAJES",
-          "size": 310980425
+          "value": 310980425
         },
         {
           "name": "AGRICULTURA GANADERIA Y RECURSOS NATURALES RENOVABLES",
-          "size": 79856447
+          "value": 79856447
         },
         {
           "name": "INDUSTRIA",
-          "size": 497775872
+          "value": 497775872
         },
         {
           "name": "COMERCIO FINANZAS SEGUROS Y ALMACENAJE",
-          "size": 23228105
+          "value": 23228105
         },
         {
           "name": "COMERCIO ALMACENAJE Y OTROS SERVICIOS",
-          "size": 3789866
+          "value": 3789866
         },
         {
           "name": "TURISMO",
-          "size": 24335100
+          "value": 24335100
         }
       ]
     },
@@ -134,7 +134,7 @@
       "children": [
         {
           "name": "SERVICIOS DE LA DEUDA PUBLICA",
-          "size": 1231385000
+          "value": 1231385000
         }
       ]
     }
